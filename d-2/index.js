@@ -48,8 +48,21 @@ function validPassword(passObj) {
 
 let validPasswords = 0;
 
+// for (password of passwords) {
+//   validPassword(password) ? validPasswords++ : null;
+// }
+
+function validPasswordPositions(password) {
+  let firstInstance = password.password[password.min - 1];
+  let secondInstance = password.password[password.max - 1];
+  return (
+    (firstInstance === password.char && secondInstance !== password.char) ||
+    (firstInstance !== password.char && secondInstance === password.char)
+  );
+}
+
 for (password of passwords) {
-  validPassword(password) ? validPasswords++ : null;
+  validPasswordPositions(password) ? validPasswords++ : null;
 }
 
 console.log(validPasswords);
