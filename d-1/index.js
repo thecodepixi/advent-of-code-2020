@@ -1,4 +1,5 @@
 /* 
+INSTRUCTIONS:
 Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers together.
 
 For example, suppose your expense report contained the following:
@@ -13,27 +14,26 @@ In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying the
 
 Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?
 */
-const readline = require('readline');
+
+// Read input file
 const fs = require('fs');
 
-const readInterface = readline.createInterface({
-  input: fs.createReadStream('d-1/input.txt'),
-  output: process.stdout,
-  console: false,
-});
+const file = fs.readFileSync('d-1/input.txt', { encoding: 'utf-8' });
 
-const inputArray = [];
+const inputArray = file
+  .split('\n')
+  .filter((i) => i !== '')
+  .map((n) => parseInt(n));
 
-readInterface.on('line', function (line) {
-  inputArray.push(line);
-});
-
+// start of actual function
 function find2020(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      console.log(i, j);
+  arr.forEach((n) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (n + arr[i] === 2020) {
+        return n * arr[i];
+      }
     }
-  }
+  });
 }
 
 find2020(inputArray);
