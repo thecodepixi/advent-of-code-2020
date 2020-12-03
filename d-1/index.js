@@ -25,15 +25,30 @@ const inputArray = file
   .filter((i) => i !== '')
   .map((n) => parseInt(n));
 
-// start of actual function
-function find2020(arr) {
-  arr.forEach((n) => {
-    for (let i = 0; i < arr.length; i++) {
-      if (n + arr[i] === 2020) {
-        return n * arr[i];
+// start of actual functions
+
+function findTwo2020(arr) {
+  for (let n of arr) {
+    for (let i of arr) {
+      if (n + i === 2020) {
+        return console.log(n * i);
       }
     }
-  });
+  }
 }
 
-find2020(inputArray);
+findTwo2020(inputArray);
+
+function findThree2020(arr) {
+  for (let n of arr) {
+    for (let i of arr) {
+      for (let p of arr) {
+        if (n + i + p === 2020) {
+          return console.log(n * i * p);
+        }
+      }
+    }
+  }
+}
+
+findThree2020(inputArray);
