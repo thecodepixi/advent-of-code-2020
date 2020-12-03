@@ -20,10 +20,7 @@ const fs = require('fs');
 
 const file = fs.readFileSync('d-1/input.txt', { encoding: 'utf-8' });
 
-const inputArray = file
-  .split('\n')
-  .filter((i) => i !== '')
-  .map((n) => parseInt(n));
+const inputArray = file.split('\n').map((n) => parseInt(n));
 
 // start of actual functions
 
