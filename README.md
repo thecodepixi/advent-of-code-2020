@@ -7,3 +7,4 @@ This year I'll be doing Advent of Code in some weird combination of JavaScript/T
 - [Day 1](d-1/index.js)
 - [Day 2](d-2/index.js)
 - [Day 3](d-3/index.js)
+- [Day 4](d-4/index.js)
