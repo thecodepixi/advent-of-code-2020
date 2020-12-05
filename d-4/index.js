@@ -9,10 +9,9 @@ let requiredFields = ['byr:', 'iyr:', 'eyr:', 'hgt:', 'hcl:', 'ecl:', 'pid:'];
 let validCount = 0;
 
 for (passport of passports) {
-  let trimmedPassport = passport.replace(/(\n|\r)/g, '');
   let valid = true;
   for (field of requiredFields) {
-    if (!trimmedPassport.includes(field)) {
+    if (!passport.includes(field)) {
       valid = false;
       break;
     }
