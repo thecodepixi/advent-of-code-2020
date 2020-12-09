@@ -32,7 +32,7 @@ let passes = rawFile.split('\n');
   return the highest seat ID
 */
 
-let allIDs = [];
+let highestID = 0;
 
 for (pass of passes) {
   let low = 0;
@@ -65,22 +65,9 @@ for (pass of passes) {
 
   let id = row * 8 + seat;
 
-  allIDs.push(id);
+  console.log(id);
+
+  highestID = highestID < id ? id : highestID;
 }
 
-let sortedIDs = allIDs.sort((a, b) => a - b);
-
-let prevID = sortedIDs[0];
-let missingID = 0;
-
-for (let i = 1; i < sortedIDs.length; i++) {
-  if (sortedIDs[i] !== prevID + 1) {
-    missingID = sortedIDs[i] - 1;
-    break;
-  } else {
-    prevID = sortedIDs[i];
-  }
-}
-
-console.log('highestID: ', sortedIDs[sortedIDs.length - 1]);
-console.log('my pass ID: ', missingID);
+console.log('highestID: ', highestID);
