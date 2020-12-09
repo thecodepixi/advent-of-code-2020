@@ -25,3 +25,34 @@ answerGroups.forEach((group) => {
 });
 
 console.log(any);
+
+// Part 2:
+/* 
+You don't need to identify the questions to which anyone answered "yes"; you need to identify the questions to which everyone answered "yes"!
+*/
+
+let all = 0;
+
+for (let group of answerGroups) {
+  let contents = {};
+
+  let splitGroup = group.split(/\n/);
+
+  splitGroup.forEach((response) => {
+    response.split('').forEach((i) => {
+      if (contents[i]) {
+        contents[i] = contents[i] + 1;
+      } else {
+        contents[i] = 1;
+      }
+    });
+  });
+
+  for (letter in contents) {
+    if (contents[letter] == splitGroup.length) {
+      all++;
+    }
+  }
+}
+
+console.log(all);
